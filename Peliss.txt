@@ -1,7 +1,7 @@
 {
   "Peliculas": [
     {
-      "nombre": "La Sirenita - 3D CAST",
+      "nombre": "LA SIRENITA - 3D CAST",
       "genero": "AVENTURAS",
       "duracion": 135,
       "clasificacion": "ATP"
@@ -22,7 +22,7 @@
       "nombre": "RAPIDOS Y FURIOSOS X - 2D CAST",
       "genero": "ACCION",
       "duracion": 140,
-      "clasificacion": "Apta para mayores de 13 años"
+      "clasificacion": "M13R"
     },
     {
       "nombre": "RAPIDOS Y FURIOSOS X - 2D SUB",
