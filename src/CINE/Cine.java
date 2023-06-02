@@ -1,5 +1,11 @@
+import CINE.Candy;
+import CINE.Producto;
+import CINE.Sala;
+
+import java.util.ArrayList;
+
 public class Cine {
-    private Candy candy = new Candy();
+    private Candy candy;
     private ArrayList<Sala> salas = new ArrayList<>();
     private ArrayList<Producto> carrito;
     private String nombre;

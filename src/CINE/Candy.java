@@ -7,6 +7,11 @@ public class Candy {
     private double ventas;
     private HashSet<Producto> productos;
 
+    public Candy(double ventas, HashSet<Producto> productos) {
+        this.ventas = ventas;
+        this.productos = productos;
+    }
+
     public Candy(HashSet<Producto> productos) {
         this.productos = productos;
     }
