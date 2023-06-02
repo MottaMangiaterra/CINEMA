@@ -1,0 +1,64 @@
+{
+  "Peliculas": [
+    {
+      "nombre": "LA SIRENITA - 3D CAST",
+      "genero": "AVENTURAS",
+      "duracion": 135,
+      "clasificacion": "ATP"
+    },
+    {
+      "nombre": "LA SIRENITA - 2D CAST",
+      "genero": "AVENTURAS",
+      "duracion": 135,
+      "clasificacion": "ATP"
+    },
+    {
+      "nombre": "OBJETOS - 2D CAST",
+      "genero": "THRILLER",
+      "duracion": 108,
+      "clasificacion": "M16"
+    },
+    {
+      "nombre": "RAPIDOS Y FURIOSOS X - 2D CAST",
+      "genero": "ACCION",
+      "duracion": 140,
+      "clasificacion": "M13R"
+    },
+    {
+      "nombre": "RAPIDOS Y FURIOSOS X - 2D SUB",
+      "genero": "ACCION",
+      "duracion": 140,
+      "clasificacion": "M13R"
+    },
+    {
+      "nombre": "RAPIDOS Y FURIOSOS X - 3D CAST",
+      "genero": "ACCION",
+      "duracion": 140,
+      "clasificacion": "M13R"
+    },
+    {
+      "nombre": "GUARDIANES DE LA GALAXIA VOL.3 - 2D CAST",
+      "genero": "ACCION",
+      "duracion": 139,
+      "clasificacion": "M13R"
+    },
+    {
+      "nombre": "MISANTROPO - 2D SUB",
+      "genero": "SUSPENSO",
+      "duracion": 119,
+      "clasificacion": "M16"
+    },
+    {
+      "nombre": "LA EXTORSION - 2D CAST",
+      "genero": "DESCONOCIDO",
+      "duracion": 139,
+      "clasificacion": "M13R"
+    },
+    {
+      "nombre": "GUARDIANES DE LA GALAXIA VOL.3 - 2D CAST",
+      "genero": "ACCION",
+      "duracion": 139,
+      "clasificacion": "M13R"
+    }
+  ]
+}
