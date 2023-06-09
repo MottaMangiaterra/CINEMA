@@ -1,3 +1,4 @@
 # CINEMA
-More Info Soon 
+
+More Info Soon
 XOXO

@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Sala {
     private int numeroSala;
     private int cantButacas;
-    private HashMap<Pelicula,String> carteleraSala=new HashMap<>();
+    private HashMap<Pelicula, String> carteleraSala = new HashMap<>();
 
     public Sala(int numeroSala, int cantButacas) {
         this.numeroSala = numeroSala;

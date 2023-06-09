@@ -1,28 +1,32 @@
 package JSON;
+import CINE.Pelicula;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.ArrayList;
 
-/**
- * Consume de Manera un JSON Local
- */
 public class ConsumoAPI {
-    /**
-     *
-     * @param archivo
-     * @return Un string con peliculas si
-     */
-    public static String leerJSON(String archivo) {
-        String peliculas = "";
-
+    public void consumirlaAPI(ArrayList<Pelicula> peliculas)
+    {
         try {
-            peliculas = new String(Files.readAllBytes(Paths.get(archivo + ".json")));
-        }
-        catch (IOException exception) {
-            exception.printStackTrace();
+            String jsonResponse = JsonUtiles.leerJSON("Peliss");
+            JSONArray jsonArray = new JSONArray(jsonResponse);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                System.out.println("Nombre" + jsonObject.getString("nombre"));
+                System.out.println("Genero" + jsonObject.getString("genero"));
+                System.out.println("Duracion" + jsonObject.getInt("duracion"));
+                System.out.println("Clasificacion" + jsonObject.getString("clasificacion"));
+
+                peliculas.set(i, new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion")));
+            }
+        }catch (JSONException jsonException)
+        {
+            System.out.println("JSON mal formado");
         }
 
-            return peliculas;
     }
+
 }
