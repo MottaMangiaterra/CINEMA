@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * Clase que define el comportamiento de una pelicula
+ *
  * @author MottaMangiaterra
  * @see <a href= "https://trello.com/c/KcUWgno3/2-crear-clase-pelicula-getters-setters-tostring-y-constructor" /> Heeramienta Agil </a>
  */

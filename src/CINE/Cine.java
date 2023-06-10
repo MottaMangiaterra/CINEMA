@@ -11,9 +11,9 @@ public class Cine {
     private String nombre;
     private String direccion;
 
-    public Cine(String nombre, String direccion, Candy candy, Sala salas){
+    public Cine(String nombre, String direccion, Candy candy, Sala salas) {
         this.candy = candy;
-        this.salas= salas;
+        this.salas = salas;
         this.direccion = direccion;
         this.nombre = nombre;
         this.carrito = new ArrayList<>();
