@@ -6,7 +6,7 @@ import CINE.Sala;
 
 import java.util.ArrayList;
 
-public class Cine {
+public class Cine<Producto> {
     private Candy candy;
     private ArrayList<Producto> carrito;
     private String nombre;
@@ -28,7 +28,7 @@ public class Cine {
     }
 
     public ArrayList<Producto> getCarrito() {
-        ArrayList<Producto> listaCarrito = new ArrayList<>(carrito);
+
         return listaCarrito;
     }
 
@@ -40,4 +40,5 @@ public class Cine {
                 ", direccion='" + direccion + '\'' +
                 '}';
     }
+
 }

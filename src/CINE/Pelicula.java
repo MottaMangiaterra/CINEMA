@@ -1,6 +1,7 @@
 package CINE;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -63,4 +64,5 @@ public class Pelicula {
     public int hashCode() {
         return Objects.hash(nombre, genero, duracion, clasificacion);
     }
+
 }
