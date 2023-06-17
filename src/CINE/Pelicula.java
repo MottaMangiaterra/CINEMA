@@ -1,5 +1,6 @@
 package CINE;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -13,6 +14,7 @@ public class Pelicula {
     private String genero;
     private int duracion;
     private String clasificacion;
+    private HashMap<String,Sala> salas;
 
     public Pelicula(String nombre, String genero, int duracion, String clasificacion) {
         this.nombre = nombre;
