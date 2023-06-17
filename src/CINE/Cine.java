@@ -4,7 +4,7 @@ import CINE.*;
 
 import java.util.ArrayList;
 
-public class Cine implements MetodoColleccion<Pelicula> {
+public class Cine implements ManejadorArraylist<Pelicula> {
     private Candy candy;
     private ArrayList<Producto> carrito;
     private ArrayList<Pelicula> peliculas;
