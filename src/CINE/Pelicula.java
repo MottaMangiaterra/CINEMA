@@ -21,6 +21,7 @@ public class Pelicula {
         this.genero = genero;
         this.duracion = duracion;
         this.clasificacion = clasificacion;
+        this.salas=new HashMap<>();
     }
 
     public String getNombre() {
@@ -46,6 +47,7 @@ public class Pelicula {
                 ", genero='" + genero + '\'' +
                 ", duracion=" + duracion +
                 ", clasificacion='" + clasificacion + '\'' +
+                ", salas=" + salas +
                 '}';
     }
 
