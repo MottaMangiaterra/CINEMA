@@ -1,7 +1,12 @@
 package CINE;
 
+import Colecciones.ManejoHashMap;
+import Excepciones.ClaveNotFoundException;
+import Excepciones.ElementoNotFoundException;
+
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Clase que define el comportamiento de una pelicula
@@ -9,12 +14,12 @@ import java.util.Objects;
  * @author MottaMangiaterra
  * @see <a href= "https://trello.com/c/KcUWgno3/2-crear-clase-pelicula-getters-setters-tostring-y-constructor" /> Heeramienta Agil </a>
  */
-public class Pelicula{
+public class Pelicula implements ManejoHashMap<Integer,Sala> {
     private String nombre;
     private String genero;
-    private int duracion;
+    private int duracion; //en minutos
     private String clasificacion;
-    private HashMap<String,Sala> salas;
+    private HashMap<Integer,Sala> salas; //hora de inicio-> Integer; solo hay 3 salas
 
     public Pelicula(String nombre, String genero, int duracion, String clasificacion) {
         this.nombre = nombre;
@@ -64,5 +69,69 @@ public class Pelicula{
         return Objects.hash(nombre, genero, duracion, clasificacion);
     }
 
+
+    @Override
+    public void agregarElemento(Integer clave, Sala valor) {
+        salas.put(clave,valor);
+    }
+
+    @Override
+    public Sala obtenerElemento(Integer clave)throws ElementoNotFoundException, ClaveNotFoundException {
+        Sala res = null;
+        if(salas.containsKey(clave))
+        {
+            res=salas.get(clave);
+            if(res==null)
+            {
+                throw new ElementoNotFoundException();
+            }
+        }
+        else {
+            throw new ClaveNotFoundException();
+        }
+        return res;
+    }
+
+
+    @Override
+    public void eliminarElemento(Integer clave) throws ElementoNotFoundException, ClaveNotFoundException {
+        if(salas.containsKey(clave))
+        {
+            Sala res=salas.get(clave);
+            if(res==null)
+            {
+                throw new ElementoNotFoundException("no hay ninguna sala asignada a ese horario");
+            }
+        }
+        else {
+            throw new ClaveNotFoundException();
+        }
+    }
+
+    @Override
+    public void limpiar() {
+
+    }
+
+    @Override
+    public int obtenerTamaño() {
+        return salas.size();
+    }
+
+    @Override
+    public String obtenerLlaves() {
+        String res="Funciones: ";
+        Set<Integer> keys =salas.keySet();
+        if(keys.isEmpty())
+        {
+            res+="proximamente.";
+        }else{
+
+        for (Integer i: keys) {
+            res +=i+" - ";
+        }
+        }
+        return res;
+    }
 
 }

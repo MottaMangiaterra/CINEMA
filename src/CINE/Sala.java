@@ -3,7 +3,7 @@ package CINE;
 import java.util.HashMap;
 
 public class Sala {
-    private int numeroSala;
+    private int numeroSala; //1-2-3
     private int cantButacas;
 
     public Sala(int numeroSala, int cantButacas) {

@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Candy {
     private double ventas;
-    private HashSet<Producto> productos;
+    private HashSet<Producto> productos; //conviene manejarlo en productos para enviar todo al carrito despues(en cine)
 
     public Candy(double ventas, HashSet<Producto> productos) {
         this.ventas = ventas;
@@ -26,7 +26,6 @@ public class Candy {
             Iterator<Producto> it = productos.iterator();
             while (it.hasNext()) {
                 Producto temp = it.next();
-
                 if (temp.getNombre().equals(nombreProducto) == true) {
                     aux = temp;
                     this.ventas += aux.getPrecio();
@@ -37,7 +36,7 @@ public class Candy {
     }
 
     /**
-     * el string es 1: toString del producto
+     * el string es 1: String del producto
      *
      * @return un string que concateno el hashset
      */
@@ -46,7 +45,7 @@ public class Candy {
         int i = 1;
         Iterator<Producto> it = productos.iterator();
         while (it.hasNext()) {
-            res += i + ": " + it.toString();
+            res += i + ": " + it;
             i++;
         }
         return res;
