@@ -1,3 +1,5 @@
+package CINE;
+
 import CINE.Candy;
 import CINE.Producto;
 import CINE.Sala;
