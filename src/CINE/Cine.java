@@ -1,3 +1,5 @@
+package CINE;
+
 import CINE.*;
 
 import java.util.ArrayList;
