@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author MottaMangiaterra
  * @see <a href= "https://trello.com/c/KcUWgno3/2-crear-clase-pelicula-getters-setters-tostring-y-constructor" /> Heeramienta Agil </a>
  */
-public class Pelicula {
+public class Pelicula implements MetodoColleccion<Sala>{
     private String nombre;
     private String genero;
     private int duracion;
@@ -61,4 +61,6 @@ public class Pelicula {
     public int hashCode() {
         return Objects.hash(nombre, genero, duracion, clasificacion);
     }
+
+
 }

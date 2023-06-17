@@ -1,12 +1,11 @@
-import CINE.Candy;
-import CINE.Producto;
-import CINE.Sala;
+import CINE.*;
 
 import java.util.ArrayList;
 
-public class Cine {
+public class Cine implements MetodoColleccion<Pelicula> {
     private Candy candy;
     private ArrayList<Producto> carrito;
+    private ArrayList<Pelicula> peliculas;
     private String nombre;
     private String direccion;
 
@@ -37,5 +36,19 @@ public class Cine {
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 '}';
+    }
+    @Override
+    public String mostrar(){
+        String mostrarPelis = new String();
+        for(int i = 0; i < peliculas.size(); i++){
+            mostrarPelis += peliculas.get(i);
+        }
+        return mostrarPelis;
+
+    }
+    @Override
+    public void agregar(Pelicula pelicula){
+        peliculas.add(pelicula);
+
     }
 }
