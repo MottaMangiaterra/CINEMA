@@ -5,11 +5,11 @@ import Colecciones.ManejadorHashSet;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Candy implements ManejadorHashSet<Producto> {
+public class Candy implements ManejadorHashSet<Golosina> {
     private double ventas;
-    private HashSet<Producto> productos; //conviene manejarlo en productos para enviar todo al carrito despues(en cine)
+    private HashSet<Golosina> productos; //conviene manejarlo en productos para enviar todo al carrito despues(en cine)
 
-    public Candy(HashSet<Producto> productos) {
+    public Candy(HashSet<Golosina> productos) {
         this.ventas=0;
         this.productos = productos;
     }
@@ -23,12 +23,12 @@ public class Candy implements ManejadorHashSet<Producto> {
      * @param "nombre del producto"
      * @return el objeto buscado
      */
-    public Producto vender(String nombreProducto) {
-        Producto aux = null;
+    public Golosina vender(String nombreProducto) {
+        Golosina aux = null;
         if (productos.contains(nombreProducto) == true) {
-            Iterator<Producto> it = productos.iterator();
+            Iterator<Golosina> it = productos.iterator();
             while (it.hasNext()) {
-                Producto temp = it.next();
+                Golosina temp = it.next();
                 if (temp.getNombre().equals(nombreProducto) == true) {
                     aux = temp;
                     this.ventas += aux.getPrecio();
@@ -43,10 +43,11 @@ public class Candy implements ManejadorHashSet<Producto> {
      *
      * @return un string que concateno el hashset
      */
-    public String mostrarCandy() {
+    @Override
+    public String mostrar() {
         String res = new String();
         int i = 1;
-        Iterator<Producto> it = productos.iterator();
+        Iterator<Golosina> it = productos.iterator();
         while (it.hasNext()) {
             res += i + ": " + it;
             i++;
@@ -55,12 +56,10 @@ public class Candy implements ManejadorHashSet<Producto> {
     }
 
     @Override
-    public String mostrar() {
-        return null;
-    }
-
-    @Override
-    public void agregar(Producto dato) {
-
+    public void agregar(Golosina dato) {
+        if (!productos.contains(dato))
+        {
+            productos.add(dato);
+        }
     }
 }

@@ -5,9 +5,10 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ConsumoAPI {
-    public void consumirlaAPI(ArrayList<Pelicula> peliculas)
+    public void consumirlaAPI(HashSet<Pelicula> peliculas)
     {
         try {
             String jsonResponse = JsonUtiles.leerJSON("Peliss");
@@ -20,7 +21,7 @@ public class ConsumoAPI {
                 System.out.println("Duracion" + jsonObject.getInt("duracion"));
                 System.out.println("Clasificacion" + jsonObject.getString("clasificacion"));
 
-                peliculas.set(i, new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion")));
+                peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion")));
             }
         }catch (JSONException jsonException)
         {

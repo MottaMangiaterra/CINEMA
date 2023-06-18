@@ -2,7 +2,7 @@ package CINE;
 
 import Colecciones.ManejoHashMap;
 import Excepciones.ClaveNotFoundException;
-import Excepciones.ElementoNotFoundException;
+import Excepciones.SalaNotFoundException;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -76,31 +76,27 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
     }
 
     @Override
-    public Sala obtenerElemento(Integer clave)throws ElementoNotFoundException, ClaveNotFoundException {
+    public Sala obtenerElemento(Integer clave){
         Sala res = null;
         if(salas.containsKey(clave))
         {
             res=salas.get(clave);
             if(res==null)
             {
-                throw new ElementoNotFoundException();
             }
-        }
-        else {
-            throw new ClaveNotFoundException();
         }
         return res;
     }
 
 
     @Override
-    public void eliminarElemento(Integer clave) throws ElementoNotFoundException, ClaveNotFoundException {
+    public void eliminarElemento(Integer clave) throws SalaNotFoundException, ClaveNotFoundException {
         if(salas.containsKey(clave))
         {
             Sala res=salas.get(clave);
             if(res==null)
             {
-                throw new ElementoNotFoundException("no hay ninguna sala asignada a ese horario");
+                throw new SalaNotFoundException("no hay ninguna sala asignada a ese horario");
             }
         }
         else {
@@ -110,7 +106,9 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
 
     @Override
     public void limpiar() {
-
+        if(!salas.isEmpty()){
+            salas.clear();
+        }
     }
 
     @Override

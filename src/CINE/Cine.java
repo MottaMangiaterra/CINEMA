@@ -31,10 +31,18 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         return direccion;
     }
 
-    /*public ArrayList<Producto> getCarrito() { //para que sirve?
+    public ArrayList<Producto> getCarrito() { //para que sirve?
         ArrayList<Producto> listaCarrito = new ArrayList<>(carrito);
         return listaCarrito;
-    }*/
+    }
+
+    public Candy getCandy() {
+        return candy;
+    }
+
+    public HashSet<Pelicula> getPeliculas() {
+        return peliculas;
+    }
 
     @java.lang.Override
     public java.lang.String toString() {
@@ -120,12 +128,53 @@ public class Cine implements ManejadorHashSet<Pelicula> {
                         break;
                 }
                 Sala value = new Sala(numSala, cantButacas);
-                dato.agregarElemento(key, value);
+                boolean pausible=disponibilidadSala(value,key);
+                if(pausible==true)
+                {
+                    dato.agregarElemento(key, value);
+                }
+                else {
+                    System.out.println("elija otra combinacion de sala y horario");
+                }
+
             }
             System.out.println("de querer agregar otra funcion presione 1");
             sc.nextInt();
             desicion=sc.nextInt();
         }
+    }
+
+    /**
+     * Transforma la duracion de la peli al sistema utilizado en horas en formato 1545 (15 horas 45 minutos)
+     *
+     * Si existe una sala en el mapa durante la duracion (checkea minuto a minuto) de la peli y
+     * el id de sala es el mismo que el que buscamos: boolean=false
+     *
+     * @param sala
+     * @param horario
+     * @return un boolean que comparo toda toda la duracion de la peli con el resto de las peliculas
+     */
+    public boolean disponibilidadSala(Sala sala, Integer horario)
+    {
+        boolean res=true;
+        for(Pelicula p: peliculas)
+        {
+            Integer comparador=horario;
+            double d=p.getDuracion();
+            d /= 60; //pasaje a a hora
+            int  i = (int) (d*100); //va a dar numero redondo siempre la hora queda en formato (2.30->230)
+            Integer finalizacionPeli=i+horario;
+            while(comparador<=finalizacionPeli)
+            {
+                Sala s = p.obtenerElemento(comparador);
+                if(s!=null && sala.getNumeroSala()==s.getNumeroSala())
+                {
+                    res=false;
+                }
+                comparador++;
+            }
+        }
+        return res;
     }
 
 }
