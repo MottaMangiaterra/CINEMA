@@ -66,7 +66,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
      * @param pelicula
      */
     @Override
-    public void agregar(Pelicula pelicula){
+    public void agregar (Pelicula pelicula){
         if (pelicula.obtenerTamaño()==0) //si no tiene ninguna funcion
         {
             try {

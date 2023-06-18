@@ -1,19 +1,22 @@
 package CINE;
 
+import Colecciones.ManejadorHashSet;
+
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Candy {
+public class Candy implements ManejadorHashSet<Producto> {
     private double ventas;
     private HashSet<Producto> productos; //conviene manejarlo en productos para enviar todo al carrito despues(en cine)
 
-    public Candy(double ventas, HashSet<Producto> productos) {
-        this.ventas = ventas;
+    public Candy(HashSet<Producto> productos) {
+        this.ventas=0;
         this.productos = productos;
     }
 
-    public Candy(HashSet<Producto> productos) {
-        this.productos = productos;
+    public Candy() {
+        this.ventas=0;
+        this.productos=new HashSet<>();
     }
 
     /**
@@ -49,5 +52,15 @@ public class Candy {
             i++;
         }
         return res;
+    }
+
+    @Override
+    public String mostrar() {
+        return null;
+    }
+
+    @Override
+    public void agregar(Producto dato) {
+
     }
 }
