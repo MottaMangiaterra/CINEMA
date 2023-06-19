@@ -81,9 +81,6 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         if(salas.containsKey(clave))
         {
             res=salas.get(clave);
-            if(res==null)
-            {
-            }
         }
         return res;
     }
@@ -115,5 +112,6 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         }
         return res;
     }
+    //metodo seleccionarHorario(analiza el espacio que hay y descuenta butacas disponibles)
 
 }

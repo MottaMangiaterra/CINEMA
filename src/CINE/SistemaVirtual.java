@@ -11,13 +11,15 @@ import java.util.Scanner;
  * Clase envoltorio vacia que contine todas las clases pertenecientes a un CINE
  */
 public class SistemaVirtual {
-    public SistemaVirtual() {
+    private Candy candy;
+    private Cine cine;
+    public SistemaVirtual() {//necesito usar las variables fuera de inicioSistema para poder hacer metodos
+        candy=new Candy(); //el candy inicia vacio
+        cine=new Cine("Ambassador","Belgrano 321",candy);//!
     }
 
     public void inicioSistema()
     {
-        Candy candy=new Candy(); //el candy inicia vacio
-        Cine cine=new Cine("Ambassador","Belgrano 321",candy);
         ConsumoAPI consumoAPI=new ConsumoAPI();
         consumoAPI.consumirlaAPI(cine.getPeliculas()); //cargamos el arreglo de pelis, se podria mover al constructor de cine y que se haga solo
         for(Pelicula p: cine.getPeliculas()) //asignamos horarios a cada peli
@@ -31,19 +33,23 @@ public class SistemaVirtual {
         //aca abajo va todo el menu
         int opcion = 0;
         Scanner sc = new Scanner(System.in);
-        String password = "";
-        System.out.println("1. Sistema cine  "+ '\'' + "2. Administracion");
+        String password = "";//sin terminar
+        System.out.println("1. Sistema cine  "+ '\'' + "2. Administracion");//ver si es necesario modo admin
         opcion = sc.nextInt();
         switch (opcion)
         {
             case 1:
                 System.out.println("1. Entradas" + '\'' + "2. Candy");
                 opcion = sc.nextInt();
-                switch (opcion)
+                switch (opcion)//faltaria opcion para ver el carrito
                 {
                     case 1:
+                        System.out.println(cine.mostrar());
+                        //comprarTicket
                         break;
                     case 2:
+                        System.out.println(candy.mostrar());
+                        //comprarCandy
                         break;
                     default:
                         break;
@@ -58,7 +64,7 @@ public class SistemaVirtual {
                 break;
         }
     }
-    public void cargarGolosinasCandy(Cine cine)
+    public void cargarGolosinasCandy(Cine cine)//mover a cine
     {
         int decision=1;
         Scanner sc=new Scanner(System.in);
@@ -74,5 +80,11 @@ public class SistemaVirtual {
             Golosina g=new Golosina(marca,st,nombre,precio);
             cine.getCandy().agregar(g);//funcion que agrega 1 golosina al candy
         }
+    }
+    public void comprarCandy(){//falta metodo selec candy
+
+    }
+    public void comprarTicket(){//metodo selec peli y selec horario
+
     }
 }

@@ -2,11 +2,13 @@ package CINE;
 
 import Colecciones.ManejadorHashSet;
 import Excepciones.HorarioImposibleException;
+import Excepciones.PeliculaNotFoundException;
 import Excepciones.ProductoNotFoundException;
 import Excepciones.SalaNotFoundException;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Cine implements ManejadorHashSet<Pelicula> {
@@ -32,7 +34,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         return direccion;
     }
 
-    public ArrayList<Producto> getCarrito() { //para que sirve?
+    public ArrayList<Producto> getCarrito() { //para que sirve? /creo que deberia ser solo un toString
         ArrayList<Producto> listaCarrito = new ArrayList<>(carrito);
         return listaCarrito;
     }
@@ -177,6 +179,20 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         }
         return res;
     }
+    public Pelicula seleccionarPelicula(String pelicula) throws PeliculaNotFoundException{
+        Pelicula peli = null;
+        for(Pelicula p: peliculas)
+        {
+            if(p.getNombre().equals(pelicula)){
+                peli = p;
+            }
+        }
+        if(peli == null){
+            throw new PeliculaNotFoundException();
+        }
+        return peli;
+    }
+
 
     /**
      * Guarda nuevos productos en el carrito.
