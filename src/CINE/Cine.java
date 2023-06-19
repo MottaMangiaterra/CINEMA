@@ -244,5 +244,17 @@ public class Cine implements ManejadorHashSet<Pelicula> {
     public void vaciarCarrito(){
         carrito.clear();
     }
+    public String mostrarCarrito()
+    {
+        String retorno="Productos";
+        double precioTotal=0;
+        for(Producto p: this.carrito)
+        {
+            retorno+=p.getNombre()+" ($"+p.getPrecio()+")";
+            precioTotal+=p.getPrecio();
+        }
+        retorno+="\n"+"Precio total: $"+precioTotal;
+        return retorno;
+    }
 
 }

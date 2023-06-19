@@ -19,9 +19,17 @@ public class Candy implements ManejadorHashSet<Golosina> {
         this.productos=new HashSet<>();
     }
 
+    public double getVentas() {
+        return ventas;
+    }
+
+    public HashSet<Golosina> getProductos() {
+        return productos;
+    }
+
     /**
      * @param "nombre del producto"
-     * @return el objeto buscado
+     * @return el objeto buscado o null si no existe
      */
     public Golosina vender(String nombreProducto) {
         Golosina aux = null;

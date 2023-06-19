@@ -26,7 +26,7 @@ public class Golosina extends Producto{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Golosina golosina = (Golosina) o;
-        return Objects.equals(marca, golosina.marca) && Objects.equals(sinTacc, golosina.sinTacc);
+        return Objects.equals(marca, golosina.marca); //modifique el equals para comparar nombres a efectos practicos no nos importa el sintacc
     }
 
     @Override
