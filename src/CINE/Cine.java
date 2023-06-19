@@ -89,6 +89,23 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         }
         peliculas.add(pelicula);
     }
+    public void cargarGolosinasCandy()
+    {
+        int decision=1;
+        Scanner sc=new Scanner(System.in);
+        while(decision==1) {
+            System.out.println("ingrese nombre de la golosina"); //es necesario usar souts para cargar
+            String nombre=sc.nextLine();
+            System.out.println("ingrese marca de la golosina");
+            String marca=sc.nextLine();
+            System.out.println("la golosina es sin tacc?");
+            String st=sc.nextLine();
+            System.out.println("ingrese precio de la golosina");
+            double precio= sc.nextDouble();
+            Golosina g=new Golosina(marca,st,nombre,precio);
+            getCandy().agregar(g);//funcion que agrega 1 golosina al candy
+        }
+    }
     /**
      * para asignar el horario y crear la sala del hashmap al mismo tiempo
      * @throws SalaNotFoundException si no existe la sala papu
@@ -179,6 +196,13 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         }
         return res;
     }
+
+    /**
+     * Recibe el nombre de una pelicula por parametro y si la encuentra, la retorna para la seleccion del horario y butacas.
+     * @param pelicula
+     * @return Pelicula
+     * @throws PeliculaNotFoundException
+     */
     public Pelicula seleccionarPelicula(String pelicula) throws PeliculaNotFoundException{
         Pelicula peli = null;
         for(Pelicula p: peliculas)
@@ -215,7 +239,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
     }
 
     /**
-     * Vacia el carrito al finalizar una compra (se utliliza en el metodo finalizarCompra()).
+     * Vacia el carrito al finalizar una compra (se utiliza en el metodo finalizarCompra()).
      */
     public void vaciarCarrito(){
         carrito.clear();

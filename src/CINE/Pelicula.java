@@ -1,6 +1,7 @@
 package CINE;
 
 import Colecciones.ManejoHashMap;
+import Excepciones.CantidadButacasErrorException;
 import Excepciones.ClaveNotFoundException;
 import Excepciones.SalaNotFoundException;
 
@@ -112,6 +113,30 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         }
         return res;
     }
-    //metodo seleccionarHorario(analiza el espacio que hay y descuenta butacas disponibles)
+    //metodo seleccionarHorario()
+
+    /**
+     * Busca el horario seleccionado y luego analiza el espacio que hay. Descuenta si hay butacas disponibles
+     * @param horario
+     * @param cantTickets
+     * @return retorna la sala en donde se encuentra la pelicula en el horario elegido.
+     * @throws SalaNotFoundException no encuentra el horario elegido.
+     * @throws CantidadButacasErrorException la cantidad de butacas seleccionadas no esta disponible.
+     */
+    public Sala seleccionarHorario(Integer horario, int cantTickets)throws SalaNotFoundException, CantidadButacasErrorException{
+        Sala sala = null;
+        if(salas.containsKey(horario))
+        {
+            sala = salas.get(horario);
+            if(sala.getButacasDisponibles() >= cantTickets)
+            {
+                sala.descontarButacas(cantTickets);
+            }else
+                throw new CantidadButacasErrorException("Cantidad superada de butacas disponibles. Restantes para su seleccion: "+ sala.getButacasDisponibles());
+        }else
+            throw new SalaNotFoundException("No se encontro ninguna funcion en ese horario");
+
+        return sala;
+    }
 
 }

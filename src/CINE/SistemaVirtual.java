@@ -1,6 +1,8 @@
 package CINE;
 
+import Excepciones.CantidadButacasErrorException;
 import Excepciones.HorarioImposibleException;
+import Excepciones.PeliculaNotFoundException;
 import Excepciones.SalaNotFoundException;
 import JSON.ConsumoAPI;
 
@@ -64,27 +66,26 @@ public class SistemaVirtual {
                 break;
         }
     }
-    public void cargarGolosinasCandy(Cine cine)//mover a cine
-    {
-        int decision=1;
-        Scanner sc=new Scanner(System.in);
-        while(decision==1) {
-            System.out.println("ingrese nombre de la golosina"); //es necesario usar souts para cargar
-            String nombre=sc.nextLine();
-            System.out.println("ingrese marca de la golosina");
-            String marca=sc.nextLine();
-            System.out.println("la golosina es sin tacc?");
-            String st=sc.nextLine();
-            System.out.println("ingrese precio de la golosina");
-            double precio= sc.nextDouble();
-            Golosina g=new Golosina(marca,st,nombre,precio);
-            cine.getCandy().agregar(g);//funcion que agrega 1 golosina al candy
-        }
-    }
     public void comprarCandy(){//falta metodo selec candy
 
     }
-    public void comprarTicket(){//metodo selec peli y selec horario
+    public void comprarTicket(String pelicula){//metodo selec peli y selec horario
+        Pelicula peli = null;
+        Sala sala = null;
+        try{
+            peli = cine.seleccionarPelicula(pelicula);
+        }catch(PeliculaNotFoundException e)
+        {
+            System.out.println(e);
+        }
+        try{
+            sala = peli.seleccionarHorario(horario, cantTickets);//no se si directamente pasar esto al switch por el tema de los sout y entradas por teclado
+        }catch(SalaNotFoundException e){
+            System.out.println(e);
+        }catch(CantidadButacasErrorException e) {
+            System.out.println(e);
+        }
+
 
     }
 }
