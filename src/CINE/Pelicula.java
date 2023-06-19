@@ -88,22 +88,6 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         return res;
     }
 
-
-    @Override
-    public void eliminarElemento(Integer clave) throws SalaNotFoundException, ClaveNotFoundException {
-        if(salas.containsKey(clave))
-        {
-            Sala res=salas.get(clave);
-            if(res==null)
-            {
-                throw new SalaNotFoundException("no hay ninguna sala asignada a ese horario");
-            }
-        }
-        else {
-            throw new ClaveNotFoundException();
-        }
-    }
-
     @Override
     public void limpiar() {
         if(!salas.isEmpty()){

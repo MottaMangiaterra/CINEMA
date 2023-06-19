@@ -33,4 +33,12 @@ public class Golosina extends Producto{
     public int hashCode() {
         return Objects.hash(super.hashCode(), marca, sinTacc);
     }
+    @Override
+    public void promocion(String codigo){
+        if(codigo.contains("Q")){//si contiene Q es un -%15
+
+        }else if(codigo.contains("V")){//si contiene V es un -%20
+
+        }
+    }
 }

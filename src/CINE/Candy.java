@@ -57,7 +57,7 @@ public class Candy implements ManejadorHashSet<Golosina> {
 
     @Override
     public void agregar(Golosina dato) {
-        if (!productos.contains(dato))
+        if (!productos.contains(dato))//se podria hacer que pueda guardar mas de uno de la misma cosa pero que se acumulen a la hora de mostrar ej: array 1, gaseo 2, gaseo, 3 gaseo. sout gaseosas: 3
         {
             productos.add(dato);
         }

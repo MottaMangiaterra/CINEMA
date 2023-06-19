@@ -2,7 +2,7 @@ package CINE;
 
 import java.util.Objects;
 
-public class Producto {
+public abstract class Producto {
     private double precio;
     private String nombre;
 
@@ -22,6 +22,7 @@ public class Producto {
     public String getNombre() {
         return nombre;
     }
+    public abstract void promocion(String codigo);
 
     @Override
     public String toString() {

@@ -29,6 +29,34 @@ public class SistemaVirtual {
             }
         }
         //aca abajo va todo el menu
+        int opcion = 0;
+        Scanner sc = new Scanner(System.in);
+        String password = "";
+        System.out.println("1. Sistema cine  "+ '\'' + "2. Administracion");
+        opcion = sc.nextInt();
+        switch (opcion)
+        {
+            case 1:
+                System.out.println("1. Entradas" + '\'' + "2. Candy");
+                opcion = sc.nextInt();
+                switch (opcion)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                System.out.println("Contrasena: ");
+                password = sc.nextLine();
+                //if()
+                break;
+            default:
+                break;
+        }
     }
     public void cargarGolosinasCandy(Cine cine)
     {

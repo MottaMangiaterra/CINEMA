@@ -2,6 +2,7 @@ package CINE;
 
 import Colecciones.ManejadorHashSet;
 import Excepciones.HorarioImposibleException;
+import Excepciones.ProductoNotFoundException;
 import Excepciones.SalaNotFoundException;
 
 import java.util.ArrayList;
@@ -175,6 +176,33 @@ public class Cine implements ManejadorHashSet<Pelicula> {
             }
         }
         return res;
+    }
+
+    /**
+     * Guarda nuevos productos en el carrito.
+     * @param producto
+     */
+    public void agregarAlcarrito(Producto producto){
+        carrito.add(producto);
+    }
+
+    /**
+     * Elimina productos no deseados/cambio de opinion del cliente.
+     * @param producto
+     * @throws ProductoNotFoundException "Producto no encontrado".
+     */
+    public void eliminarDelCarrito(Producto producto) throws ProductoNotFoundException {
+        if(carrito.contains(producto)){
+            carrito.remove(producto);
+        }else
+            throw new ProductoNotFoundException();
+    }
+
+    /**
+     * Vacia el carrito al finalizar una compra (se utliliza en el metodo finalizarCompra()).
+     */
+    public void vaciarCarrito(){
+        carrito.clear();
     }
 
 }
