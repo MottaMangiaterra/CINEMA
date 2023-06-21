@@ -143,8 +143,8 @@ public class SistemaVirtual {
         }
         try{
             sala = peli.seleccionarHorario(horario, cantTickets);//no se si directamente pasar esto al switch por el tema de los sout y entradas por teclado
-            //para mi @laucha la mejor seria un switch con un int que se traiga de la funcion inicio de sistema
-        }catch(SalaNotFoundException | CantidadButacasErrorException e){
+            //para mi @laucha la mejor seria un switch con un int que se traiga de la funcion inicio de sistema / un switch de que?
+        }catch(SalaNotFoundException | CantidadButacasSuperadasException e){
             System.out.println(e.getMessage());
         }
 
