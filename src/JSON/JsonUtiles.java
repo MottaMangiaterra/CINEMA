@@ -14,13 +14,12 @@ public class JsonUtiles {
      */
     public static String leerJSON(String archivo) {
         String peliculas = "";
-
         try {
-            peliculas = new String(Files.readAllBytes(Paths.get(archivo + ".json")));
+            peliculas = new String(Files.readAllBytes(Paths.get("src\\JSON\\"+archivo+".json")));
+            System.out.println(peliculas);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
         return peliculas;
     }
 }

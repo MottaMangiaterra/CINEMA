@@ -6,6 +6,9 @@ import Excepciones.PeliculaNotFoundException;
 import Excepciones.ProductoNotFoundException;
 import Excepciones.SalaNotFoundException;
 
+import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,9 +20,11 @@ public class Cine implements ManejadorHashSet<Pelicula> {
     private HashSet<Pelicula> peliculas;
     private String nombre;
     private String direccion;
+    private double ventas;
 
     public Cine(String nombre, String direccion, Candy candy) {
         this.candy = candy;
+        this.ventas=0;
         this.direccion = direccion;
         this.nombre = nombre;
         this.carrito = new ArrayList<>();
@@ -255,6 +260,57 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         }
         retorno+="\n"+"Precio total: $"+precioTotal;
         return retorno;
+    }
+
+    /**
+     * archivo que guarda la fecha y las ventas (localdate
+     */
+    public void grabarVentas(){
+        try (
+            FileOutputStream file = new FileOutputStream("ventas.dat")) {
+            DataOutputStream dos = new DataOutputStream(file);
+            LocalDate date=LocalDate.now();
+            dos.writeChars(date.toString());
+            dos.writeDouble(ventas);
+            dos.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * vacio carrito y sumo el total a las ventas
+     */
+    public void comprarCarrito()
+    {
+        double precioTotal=0;
+        for(Producto p: this.carrito)
+        {
+            precioTotal+=p.getPrecio();
+        }
+        this.carrito.clear();
+        this.ventas+=precioTotal;
+    }
+
+    /**
+     *
+     * @return devuelve el string con las fechas y las ventas de cada dia
+     */
+    public String mostrarArchivoVentas()
+    {
+        String res="";
+        try{
+            FileInputStream file=new FileInputStream("ventas.dat");
+            DataInputStream dos = new DataInputStream(file);
+            while(dos.available()>0)
+            {
+                res+=dos.readUTF();
+                res+="    Ventas: "+dos.readDouble()+"\n";
+            }
+        }catch(IOException e){
+            System.out. println(e.getMessage());
+        }
+        return res;
     }
 
 }

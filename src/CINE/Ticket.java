@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class Ticket extends Producto {
     private int numeroSala;
-    private Integer horario;
+    private double horario;
 
-    public Ticket(String nombrePeli, int numeroSala, Integer horario, double precio) {
+    public Ticket(String nombrePeli, int numeroSala, double horario, double precio) {
         super(precio, nombrePeli);
         this.numeroSala = numeroSala;
         this.horario = horario;
@@ -18,7 +18,7 @@ public class Ticket extends Producto {
         return numeroSala;
     }
 
-    public Integer getHorario() {
+    public double getHorario() {
         return horario;
     }
     @Override

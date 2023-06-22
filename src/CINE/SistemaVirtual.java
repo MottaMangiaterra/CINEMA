@@ -58,9 +58,9 @@ public class SistemaVirtual {
                                 System.out.println(e.getMessage());
                             }
                             System.out.println(peli.mostrarHorario());
-                            System.out.println("Seleccione el horario");
-                            int horario = sc.nextInt();
-                            System.out.println("Por ultimo, ingrese la cantidad e tickets");
+                            System.out.println("ingrese el horario");
+                            double horario = sc.nextDouble();
+                            System.out.println("Por ultimo, ingrese la cantidad de tickets");
                             int cantTickets = sc.nextInt();
                             Sala sala = null;
                             try{
@@ -72,7 +72,7 @@ public class SistemaVirtual {
                             {
                                 System.out.println("Posee algun codigo de beneficio/descuento?  S/N");//solo va a poder utilizar un beneficio por compra
                                 res = sc.nextLine();
-                                if(res == "S"){
+                                if(res.equalsIgnoreCase("S")){
                                     System.out.println("Ingrese el codigo: ");
                                     res = sc.nextLine();
                                 }
@@ -97,11 +97,11 @@ public class SistemaVirtual {
                                 }
                             }
                             res = null;*///no puedo porque sino tengo que cambiar todo
-                            try {
+                           /* try {
                                 comprarCandy(res, );
                             } catch (ProductoNotFoundException e) {
                                 e.getMessage();
-                            }
+                            }*/
                             break;
                         case 3:
                             System.out.println(cine.mostrarCarrito());
@@ -186,7 +186,7 @@ public class SistemaVirtual {
 
 
     }
-    public void comprarTicket(Pelicula pelicula, int cantTickets, int horario, Sala sala, String codigo){
+    public void comprarTicket(Pelicula pelicula, int cantTickets, double horario, Sala sala, String codigo){
 
         double precio = 0;//en proceso
         int uso = 0;
@@ -197,7 +197,7 @@ public class SistemaVirtual {
             precio = 1400;
         for(int i = 0; i < cantTickets; i++)
         {
-            Ticket ticket = new Ticket(pelicula.getNombre(), sala.getNumeroSala(), horario, precio);
+            Producto ticket = new Ticket(pelicula.getNombre(), sala.getNumeroSala(), horario, precio);
             if(codigo != null) {
                 try{
                     ticket.promocion(codigo, uso);

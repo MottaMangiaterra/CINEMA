@@ -125,17 +125,18 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
 
     /**
      * Busca el horario seleccionado y luego analiza el espacio que hay. Descuenta si hay butacas disponibles
-     * @param horario
+     * @param dato
      * @param cantTickets
      * @return retorna la sala en donde se encuentra la pelicula en el horario elegido.
      * @throws SalaNotFoundException no encuentra el horario elegido.
      * @throws CantidadButacasSuperadasException la cantidad de butacas seleccionadas no esta disponible.
      */
-    public Sala seleccionarHorario(Integer horario, int cantTickets)throws SalaNotFoundException, CantidadButacasSuperadasException{
+    public Sala seleccionarHorario(double dato, int cantTickets)throws SalaNotFoundException, CantidadButacasSuperadasException{
         Sala sala = null;
-        if(salas.containsKey(horario))
+        Integer horario= (int) (dato*100);
+        if(salas.containsKey(dato))
         {
-            sala = salas.get(horario);
+            sala = salas.get(dato);
             if(sala.getButacasDisponibles() >= cantTickets)
             {
                 sala.descontarButacas(cantTickets);
