@@ -67,7 +67,19 @@ public class SistemaVirtual {
                                 sala = peli.seleccionarHorario(horario, cantTickets);
                             }catch(SalaNotFoundException | CantidadButacasSuperadasException e){
                                 System.out.println(e.getMessage());
-                            }//en proceso
+                            }
+                            if(cantTickets >=2)
+                            {
+                                System.out.println("Posee algun codigo de beneficio/descuento?  S/N");//solo va a poder utilizar un beneficio por compra
+                                res = sc.nextLine();
+                                if(res == "S"){
+                                    System.out.println("Ingrese el codigo: ");
+                                    res = sc.nextLine();
+                                }
+                            }
+                            res = null;
+
+                            comprarTicket(peli, cantTickets, horario, sala, res);
 
                             break;
                         case 2:
@@ -75,8 +87,18 @@ public class SistemaVirtual {
                             sc.nextLine();
                             System.out.println("ingrese nombre de producto a agregar al carrito");
                             res = sc.nextLine();
+                            /*if(golosina >=2)
+                            {
+                                System.out.println("Posee algun codigo de beneficio/descuento?  S/N");//solo va a poder utilizar un beneficio por compra
+                                res = sc.nextLine();
+                                if(res == "S"){
+                                    System.out.println("Ingrese el codigo: ");
+                                    res = sc.nextLine();
+                                }
+                            }
+                            res = null;*///no puedo porque sino tengo que cambiar todo
                             try {
-                                comprarCandy(res);
+                                comprarCandy(res, );
                             } catch (ProductoNotFoundException e) {
                                 e.getMessage();
                             }
@@ -95,8 +117,8 @@ public class SistemaVirtual {
                     {
                         sc.nextLine();
                         System.out.println("1. agregar pelicula " + '\'' + "2. agregar golosina"); //añadir guardar ventas candy y cine
-                        int res=sc.nextInt();
-                        switch (res){
+                        opcion =sc.nextInt();
+                        switch (opcion){
                             case 1:
                                 String nombre, genero, clasificacion;
                                 int duracion;
@@ -147,16 +169,27 @@ public class SistemaVirtual {
         }
     }
     public void comprarCandy(String nombreGolosina) throws ProductoNotFoundException {//falta metodo selec candy
-            Golosina res=candy.vender(nombreGolosina); //devuelve null si no existe
-            if(res==null)
-            {
-                throw new ProductoNotFoundException(); //tiramos exception si no existe
-            }else
-                cine.agregarAlcarrito(res);
+        Golosina res=candy.vender(nombreGolosina); //devuelve null si no existe
+        int uso = 0;
+        if(res==null) {
+            throw new ProductoNotFoundException(); //tiramos exception si no existe}else{
+        }
+        /*if(codigo != null)
+        {
+            try{
+                res.promocion(codigo, uso);
+            }catch (CodigoIncorrectoException e){
+                System.out.println(e.getMessage());
+            }
+        }*/
+        cine.agregarAlcarrito(res);
+
 
     }
-    public void comprarTicket(Pelicula pelicula, int cantTickets, int horario, Sala sala){//metodo selec peli y selec horario
+    public void comprarTicket(Pelicula pelicula, int cantTickets, int horario, Sala sala, String codigo){
+
         double precio = 0;//en proceso
+        int uso = 0;
         if(pelicula.getNombre().contains("3D"))
         {
             precio = 1600;
@@ -165,8 +198,19 @@ public class SistemaVirtual {
         for(int i = 0; i < cantTickets; i++)
         {
             Ticket ticket = new Ticket(pelicula.getNombre(), sala.getNumeroSala(), horario, precio);
+            if(codigo != null) {
+                try{
+                    ticket.promocion(codigo, uso);
+                }catch(CodigoIncorrectoException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+
+                uso++;
+            }
             cine.agregarAlcarrito(ticket);
         }
+
 
 
 

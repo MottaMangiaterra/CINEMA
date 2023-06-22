@@ -1,5 +1,7 @@
 package CINE;
 
+import Excepciones.CodigoIncorrectoException;
+
 import java.util.Objects;
 
 public class Golosina extends Producto{
@@ -34,11 +36,22 @@ public class Golosina extends Producto{
         return Objects.hash(super.hashCode(), marca, sinTacc);
     }
     @Override
-    public void promocion(String codigo){
+    public void promocion(String codigo, int uso) throws CodigoIncorrectoException{
+        double precio = 0;
+        double descuento = 0;
         if(codigo.contains(Character.toString('Q'))){//si contiene Q es un -%15
+            precio = getPrecio();
+            descuento = precio*0.15;
+            precio -= descuento;
+            setPrecio(precio);
 
         }else if(codigo.contains(Character.toString('V'))){//si contiene V es un -%20
+            precio = getPrecio();
+            descuento = precio*0.2;
+            precio -= descuento;
+            setPrecio(precio);
 
-        }//en proceso
+        }else if(codigo.contains(Character.toString('Q')) ||codigo.contains(Character.toString('V')))
+            throw new CodigoIncorrectoException();
     }
 }

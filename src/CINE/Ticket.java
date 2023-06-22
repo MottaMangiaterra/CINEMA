@@ -1,5 +1,7 @@
 package CINE;
 
+import Excepciones.CodigoIncorrectoException;
+
 import java.util.Objects;
 
 public class Ticket extends Producto {
@@ -20,13 +22,17 @@ public class Ticket extends Producto {
         return horario;
     }
     @Override
-    public void promocion(String codigo)
+    public void promocion(String codigo, int uso) throws CodigoIncorrectoException
     {
-        if(codigo.contains(Character.toString('M'))){//si contiene M es un 2x1
+        if(codigo.contains(Character.toString('M')) || uso != 2){//si contiene M es un 2x1
+            double precio = getPrecio();
+            setPrecio(precio/2);
 
-        }else if(codigo.contains("INV")){//si contiene INV es una entrada gratis
-
-        }//en proceso
+        }else if(codigo.contains("INV")|| uso != 1){//si contiene INV es una entrada gratis
+            setPrecio(0);
+        }else if(codigo.contains(Character.toString('M')) ||codigo.contains("INV")){
+            throw new CodigoIncorrectoException();
+        }
     }
     @Override
     public int hashCode(){

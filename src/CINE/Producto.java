@@ -1,5 +1,7 @@
 package CINE;
 
+import Excepciones.CodigoIncorrectoException;
+
 import java.util.Objects;
 
 public abstract class Producto {
@@ -22,7 +24,7 @@ public abstract class Producto {
     public String getNombre() {
         return nombre;
     }
-    public abstract void promocion(String codigo);
+    public abstract void promocion(String codigo, int uso)throws CodigoIncorrectoException;
 
     @Override
     public String toString() {
