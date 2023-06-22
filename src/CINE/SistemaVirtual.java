@@ -35,24 +35,46 @@ public class SistemaVirtual {
 
             int opcion = 0;
             Scanner sc = new Scanner(System.in);
-            String password = "";//sin terminar
+            String password = "";
             System.out.println("1. Sistema cine  " + '\'' + "2. Administracion");//ver si es necesario modo admin
+            String res = null;
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
                     System.out.println("1. Entradas" + '\'' + "2. Candy" + '\'' + " 3. Carrito");
                     opcion = sc.nextInt();
-                    switch (opcion)//faltaria opcion para ver el carrito
+                    switch (opcion)
                     {
                         case 1:
                             System.out.println(cine.mostrar());
+                            System.out.println("ingrese nombre de la pelicula");
+                            res = sc.nextLine();
                             //comprarTicket
+                            Pelicula peli = null;
+                            try{
+                                peli = cine.seleccionarPelicula(res);
+                            }catch(PeliculaNotFoundException e)
+                            {
+                                System.out.println(e.getMessage());
+                            }
+                            System.out.println(peli.mostrarHorario());
+                            System.out.println("Seleccione el horario");
+                            int horario = sc.nextInt();
+                            System.out.println("Por ultimo, ingrese la cantidad e tickets");
+                            int cantTickets = sc.nextInt();
+                            Sala sala = null;
+                            try{
+                                sala = peli.seleccionarHorario(horario, cantTickets);
+                            }catch(SalaNotFoundException | CantidadButacasSuperadasException e){
+                                System.out.println(e.getMessage());
+                            }//en proceso
+
                             break;
                         case 2:
                             System.out.println(candy.mostrar());
                             sc.nextLine();
                             System.out.println("ingrese nombre de producto a agregar al carrito");
-                            String res = sc.nextLine();
+                            res = sc.nextLine();
                             try {
                                 comprarCandy(res);
                             } catch (ProductoNotFoundException e) {
@@ -129,24 +151,24 @@ public class SistemaVirtual {
             if(res==null)
             {
                 throw new ProductoNotFoundException(); //tiramos exception si no existe
-            }
+            }else
+                cine.agregarAlcarrito(res);
 
     }
-    public void comprarTicket(String pelicula){//metodo selec peli y selec horario
-        Pelicula peli = null;
-        Sala sala = null;
-        try{
-            peli = cine.seleccionarPelicula(pelicula);
-        }catch(PeliculaNotFoundException e)
+    public void comprarTicket(Pelicula pelicula, int cantTickets, int horario, Sala sala){//metodo selec peli y selec horario
+        double precio = 0;//en proceso
+        if(pelicula.getNombre().contains("3D"))
         {
-            System.out.println(e.getMessage());
+            precio = 1600;
+        }else if(pelicula.getNombre().contains("2D"))
+            precio = 1400;
+        for(int i = 0; i < cantTickets; i++)
+        {
+            Ticket ticket = new Ticket(pelicula.getNombre(), sala.getNumeroSala(), horario, precio);
+            cine.agregarAlcarrito(ticket);
         }
-        try{
-            sala = peli.seleccionarHorario(horario, cantTickets);//no se si directamente pasar esto al switch por el tema de los sout y entradas por teclado
-            //para mi @laucha la mejor seria un switch con un int que se traiga de la funcion inicio de sistema / un switch de que?
-        }catch(SalaNotFoundException | CantidadButacasSuperadasException e){
-            System.out.println(e.getMessage());
-        }
+
+
 
 
     }

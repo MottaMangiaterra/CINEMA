@@ -22,11 +22,11 @@ public class Ticket extends Producto {
     @Override
     public void promocion(String codigo)
     {
-        if(codigo.contains("M")){//si contiene M es un 2x1
+        if(codigo.contains(Character.toString('M'))){//si contiene M es un 2x1
 
         }else if(codigo.contains("INV")){//si contiene INV es una entrada gratis
 
-        }
+        }//en proceso
     }
     @Override
     public int hashCode(){

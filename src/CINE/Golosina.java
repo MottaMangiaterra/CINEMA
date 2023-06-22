@@ -35,10 +35,10 @@ public class Golosina extends Producto{
     }
     @Override
     public void promocion(String codigo){
-        if(codigo.contains("Q")){//si contiene Q es un -%15
+        if(codigo.contains(Character.toString('Q'))){//si contiene Q es un -%15
 
-        }else if(codigo.contains("V")){//si contiene V es un -%20
+        }else if(codigo.contains(Character.toString('V'))){//si contiene V es un -%20
 
-        }
+        }//en proceso
     }
 }

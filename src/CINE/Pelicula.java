@@ -5,9 +5,7 @@ import Excepciones.CantidadButacasSuperadasException;
 import Excepciones.ClaveNotFoundException;
 import Excepciones.SalaNotFoundException;
 
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Clase que define el comportamiento de una pelicula
@@ -44,6 +42,16 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
 
     public String getClasificacion() {
         return clasificacion;
+    }
+
+    public String mostrarHorario(){
+        String res = null;
+        Iterator it = salas.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry<Integer, Sala> entry = (Map.Entry<Integer, Sala>)it.next();
+            res += "Sala " + entry.getValue() + '\'' + "Horario " + entry.getKey() + '\'';
+        }
+        return res;
     }
 
     @Override

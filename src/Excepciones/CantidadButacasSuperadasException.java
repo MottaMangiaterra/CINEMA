@@ -1,6 +1,6 @@
 package Excepciones;
 
-public class CantidadButacasSuperadasException extends Exception{//cambie el nombre porque esta mal decir que es un Error, es otro concepto aparte
+public class CantidadButacasSuperadasException extends Exception{
     public CantidadButacasSuperadasException (){
         super("Capacidad superada de butacas disponibles");
     }
