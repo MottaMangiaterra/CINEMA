@@ -28,6 +28,14 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         this.salas=new HashMap<>();
     }
 
+    public Pelicula(String nombre, String genero, int duracion, String clasificacion, HashMap<Integer, Sala> salas) {
+        this.nombre = nombre;
+        this.genero = genero;
+        this.duracion = duracion;
+        this.clasificacion = clasificacion;
+        this.salas = salas;
+    }
+
     public String getNombre() {
         return nombre;
     }

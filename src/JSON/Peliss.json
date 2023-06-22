@@ -3,7 +3,21 @@
       "nombre": "LA SIRENITA - 3D CAST",
       "genero": "AVENTURAS",
       "duracion": 135,
-      "clasificacion": "ATP"
+      "clasificacion": "ATP",
+      "horarios":[
+        {"horario0": 14.50},
+        {"horario1": 10.50},
+        {"horario2": 6.50}
+      ],
+      "salas": [
+        {"numeroSala": 1,
+          "cantButacas": 60},
+
+        {"numeroSala": 2,
+          "cantButacas": 50},
+        {"numeroSala": 1,
+          "cantButacas": 60}
+      ]
     },
     {
       "nombre": "LA SIRENITA - 2D CAST",

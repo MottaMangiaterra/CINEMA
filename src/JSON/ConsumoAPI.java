@@ -1,11 +1,12 @@
 package JSON;
 import CINE.Golosina;
 import CINE.Pelicula;
+import CINE.Sala;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class ConsumoAPI {
@@ -16,7 +17,19 @@ public class ConsumoAPI {
             JSONArray jsonArray = new JSONArray(jsonResponse);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion")));
+                JSONArray jsonArrayH= jsonObject.getJSONArray("horarios");
+                JSONArray jsonArrayS=jsonObject.getJSONArray("salas");
+                HashMap<Integer,Sala> salaHashMap=new HashMap<>();
+                for(int j=0;j<jsonArrayH.length();j++) {
+                    JSONObject jsonObjectS=jsonArrayS.getJSONObject(j);
+                    double horario = jsonArrayH.getDouble(j);
+                    Integer horarioReal= (int) (horario*100);
+                    Sala sala=new Sala(jsonObjectS.getInt("numeroSala"),jsonObjectS.getInt("cantButacas"));
+
+                    salaHashMap.put(horarioReal,sala);
+                }
+                peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion"),salaHashMap));
+                salaHashMap.clear();
             }
 
          /*   String golosinaJsonResponse=JsonUtiles.leerJSON("Golosinas"); //json golosinas
@@ -28,7 +41,6 @@ public class ConsumoAPI {
             }*/
         }catch (JSONException jsonException)
         {
-            System.out.println(jsonException.fillInStackTrace());
             System.out.println("JSON mal formado");
         }
 
