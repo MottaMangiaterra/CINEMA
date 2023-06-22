@@ -21,14 +21,7 @@ public class SistemaVirtual {
     {
         ConsumoAPI consumoAPI=new ConsumoAPI(); //carga pelis y candy
         consumoAPI.consumirlaAPI(cine.getPeliculas(),this.candy.getProductos()); //cargamos el arreglo de pelis, se podria mover al constructor de cine y que se haga solo
-        for(Pelicula p: cine.getPeliculas()) //asignamos horarios a cada peli
-        {
-            try {
-                cine.asignarHorario(p);
-            } catch (SalaNotFoundException | HorarioImposibleException e) { //salas 1, 2 o 3 - horario entre 00.00 a 23.59
-                System.out.println(e.getMessage());
-            }
-        }
+
         //aca abajo va todo el menu
         boolean menuContinuar=true;
         while(menuContinuar==true) {
@@ -48,9 +41,10 @@ public class SistemaVirtual {
                         case 1:
                             System.out.println(cine.mostrar());
                             System.out.println("ingrese nombre de la pelicula");
+                            sc.nextLine();
                             res = sc.nextLine();
                             //comprarTicket
-                            Pelicula peli = null;
+                            Pelicula peli =null;
                             try{
                                 peli = cine.seleccionarPelicula(res);
                             }catch(PeliculaNotFoundException e)

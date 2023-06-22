@@ -74,7 +74,6 @@ public class Cine implements ManejadorHashSet<Pelicula> {
                           " / Genero: "+p.getGenero()+" / Duracion:"+p.getDuracion()+" minutos"+"\n"+p.obtenerLlaves();
         }
         return mostrarPelis;
-
     }
 
     /**

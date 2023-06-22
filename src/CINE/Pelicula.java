@@ -124,6 +124,7 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         }else{
 
         for (Integer i: keys) {
+            double aux=i/100;
             res +=i+" - ";
         }
         }

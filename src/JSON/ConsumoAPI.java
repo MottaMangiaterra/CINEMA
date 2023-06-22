@@ -17,19 +17,19 @@ public class ConsumoAPI {
             JSONArray jsonArray = new JSONArray(jsonResponse);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                JSONArray jsonArrayH= jsonObject.getJSONArray("horarios");
+                JSONArray jsonArrayH=jsonObject.getJSONArray("horarios");
                 JSONArray jsonArrayS=jsonObject.getJSONArray("salas");
                 HashMap<Integer,Sala> salaHashMap=new HashMap<>();
                 for(int j=0;j<jsonArrayH.length();j++) {
                     JSONObject jsonObjectS=jsonArrayS.getJSONObject(j);
-                    double horario = jsonArrayH.getDouble(j);
+                    double horario = jsonArrayH.getJSONObject(j).getDouble("horario");//no anda
                     Integer horarioReal= (int) (horario*100);
                     Sala sala=new Sala(jsonObjectS.getInt("numeroSala"),jsonObjectS.getInt("cantButacas"));
-
+                    System.out.println(sala.getNumeroSala());
+                    System.out.println(sala.getCantButacas());
                     salaHashMap.put(horarioReal,sala);
                 }
                 peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion"),salaHashMap));
-                salaHashMap.clear();
             }
 
          /*   String golosinaJsonResponse=JsonUtiles.leerJSON("Golosinas"); //json golosinas
