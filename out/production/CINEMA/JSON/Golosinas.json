@@ -1,0 +1,44 @@
+[
+  {
+    "marca": "X",
+    "sinTacc": "NO",
+    "nombre": "Pochoclo dulce",
+    "precio": 1500
+  },
+  {
+    "marca": "X",
+    "sinTacc": "NO",
+    "nombre": "Nachos c/ cheddar",
+    "precio": 2000
+  },
+  {
+    "marca": "Pico dulce",
+    "sinTacc": "SI",
+    "nombre": "Pico dulce",
+    "precio": 200
+  },
+  {
+    "marca": "Coca-Cola",
+    "sinTacc": "SI",
+    "nombre": "gaseosa cola yankee",
+    "precio": 300
+  },
+  {
+    "marca": "Aguila",
+    "sinTacc": "NO",
+    "nombre": "Alfajor aguila",
+    "precio": 450
+  },
+  {
+    "marca": "Flics",
+    "sinTacc": "SI",
+    "nombre": "Chicles menta",
+    "precio": 260
+  },
+  {
+    "marca": "Cofler",
+    "sinTacc": "SI",
+    "nombre": "Chocolate block",
+    "precio": 750
+  }
+]

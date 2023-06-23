@@ -30,13 +30,13 @@ public class ConsumoAPI {
                 peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion"),salaHashMap));
             }
 
-         /*   String golosinaJsonResponse=JsonUtiles.leerJSON("Golosinas"); //json golosinas
+           String golosinaJsonResponse=JsonUtiles.leerJSON("Golosinas"); //json golosinas
             JSONArray jsonArray1=new JSONArray(golosinaJsonResponse);
             for(int j=0;j<jsonArray1.length();j++)
             {
                 JSONObject jsonObject= jsonArray1.getJSONObject(j);
                 golosinas.add(new Golosina(jsonObject.getString("marca"),jsonObject.getString("sinTacc"),jsonObject.getString("nombre"),jsonObject.getDouble("precio")));
-            }*/
+            }
         }catch (JSONException jsonException)
         {
             System.out.println("JSON mal formado");

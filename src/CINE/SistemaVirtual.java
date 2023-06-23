@@ -20,7 +20,7 @@ public class SistemaVirtual {
     public void inicioSistema()
     {
         ConsumoAPI consumoAPI=new ConsumoAPI(); //carga pelis y candy
-        consumoAPI.consumirlaAPI(cine.getPeliculas(),this.candy.getProductos()); //cargamos el arreglo de pelis, se podria mover al constructor de cine y que se haga solo
+        consumoAPI.consumirlaAPI(cine.getPeliculas(),candy.getProductos()); //cargamos el arreglo de pelis, se podria mover al constructor de cine y que se haga solo
 
         //aca abajo va todo el menu
         boolean menuContinuar=true;
@@ -86,11 +86,11 @@ public class SistemaVirtual {
                     }
                     break;
                 case 2:
+                    sc.nextLine();
                     System.out.println("Contrasena: ");
                     password = sc.nextLine();
                     if(password.equals("1234"))
                     {
-                        sc.nextLine();
                         System.out.println("1. agregar pelicula " + '\'' + "2. agregar golosina"); //añadir guardar ventas candy y cine
                         opcion =sc.nextInt();
                         switch (opcion){
@@ -116,12 +116,10 @@ public class SistemaVirtual {
                                 sc.nextLine();
                                 System.out.println("ingrese nombre");
                                 nombre=sc.nextLine();
-                                sc.nextLine();
                                 System.out.println("ingrese marca");
-                                marca=sc.nextLine();sc.nextLine();
+                                marca=sc.nextLine();
                                 System.out.println("ingrese si el producto es sin tacc");
                                 sinTacc=sc.nextLine();
-                                sc.nextLine();
                                 System.out.println("ingrese precio");
                                 precio=sc.nextInt();
                                 candy.agregar(new Golosina(marca,sinTacc,nombre,precio));

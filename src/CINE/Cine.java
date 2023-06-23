@@ -252,11 +252,11 @@ public class Cine implements ManejadorHashSet<Pelicula> {
     }
     public String mostrarCarrito()
     {
-        String retorno="Productos";
+        String retorno="Productos: \n";
         double precioTotal=0;
         for(Producto p: this.carrito)
         {
-            retorno+=p.getNombre()+" ($"+p.getPrecio()+")";
+            retorno+=p.getNombre()+" ($"+p.getPrecio()+")\n";
             precioTotal+=p.getPrecio();
         }
         retorno+="\n"+"Precio total: $"+precioTotal;
