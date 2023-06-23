@@ -138,7 +138,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
             Integer key=keyHora+keyMinutos; //+ minutos queda 1630, si es 0 queda 0030
             System.out.println("Ingrese numero de sala");
             int numSala=sc.nextInt();
-            if(numSala>3 && numSala<1){
+            if(numSala>3 || numSala<1){
                 throw new SalaNotFoundException("Sala inexistente");
             }else {
                 int cantButacas = 0;
@@ -172,7 +172,6 @@ public class Cine implements ManejadorHashSet<Pelicula> {
 
     /**
      * Transforma la duracion de la peli al sistema utilizado en horas en formato 1545 (15 horas 45 minutos)
-     *
      * Si existe una sala en el mapa durante la duracion (checkea minuto a minuto) de la peli y
      * el id de sala es el mismo que el que buscamos: boolean=false
      *
