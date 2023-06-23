@@ -29,18 +29,18 @@ public class SistemaVirtual {
             int opcion = 0;
             Scanner sc = new Scanner(System.in);
             String password = "";
-            System.out.println("1. Sistema cine  " + '\'' + "2. Administracion");//ver si es necesario modo admin
+            System.out.println("1. Sistema cine  \n2. Administracion");//ver si es necesario modo admin
             String res = null;
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("1. Entradas" + '\'' + "2. Candy" + '\'' + " 3. Carrito");
+                    System.out.println("1. Entrada \n2. Candy \n3. Carrito");
                     opcion = sc.nextInt();
                     switch (opcion)
                     {
                         case 1:
                             System.out.println(cine.mostrar());
-                            System.out.println("ingrese nombre de la pelicula");
+                            System.out.println("Ingrese nombre de la pelicula (Tenga en cuenta el formato al escribir: peli - tipo idioma).");
                             sc.nextLine();
                             res = sc.nextLine();
 
@@ -54,9 +54,9 @@ public class SistemaVirtual {
                             }
 
                             System.out.println(peli.mostrarHorario());
-                            System.out.println("ingrese el horario");
+                            System.out.println("Ingrese el horario(con coma).");
                             double horario = sc.nextDouble();
-                            System.out.println("Por ultimo, ingrese la cantidad de tickets");
+                            System.out.println("Por ultimo, ingrese la cantidad de tickets.");
                             int cantTickets = sc.nextInt();
                             Sala sala = new Sala();
                             try{
@@ -69,7 +69,7 @@ public class SistemaVirtual {
                         case 2:
                             System.out.println(candy.mostrar());
                             sc.nextLine();
-                            System.out.println("ingrese nombre de producto a agregar al carrito");
+                            System.out.println("Ingrese nombre de producto a agregar al carrito.");
                             res = sc.nextLine();
                             try {
                                 comprarCandy(res);
@@ -81,7 +81,7 @@ public class SistemaVirtual {
                             System.out.println(cine.mostrarCarrito());
                             break;
                         default:
-                            System.out.println("ingrese solamente una de las opciones marcadas por el sistema");
+                            System.out.println("Ingrese solamente una de las opciones marcadas por el sistema.");
                             break;
                     }
                     break;
@@ -91,7 +91,7 @@ public class SistemaVirtual {
                     password = sc.nextLine();
                     if(password.equals("1234"))
                     {
-                        System.out.println("1. agregar pelicula " + '\'' + "2. agregar golosina"); //añadir guardar ventas candy y cine
+                        System.out.println("1. Agregar pelicula. \n2. Agregar golosina."); //añadir guardar ventas candy y cine
                         opcion =sc.nextInt();
                         switch (opcion){
                             case 1:
