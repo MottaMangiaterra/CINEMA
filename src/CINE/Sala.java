@@ -6,7 +6,11 @@ public class Sala {
     private int numeroSala; //1-2-3
     private int cantButacas;
     private int butacasDisponibles;
-
+    public Sala(){
+        this.numeroSala = 0;
+        this.cantButacas = 0;
+        this.butacasDisponibles = 0;
+    }
     public Sala(int numeroSala, int cantButacas) {
         this.numeroSala = numeroSala;
         this.cantButacas = cantButacas;
