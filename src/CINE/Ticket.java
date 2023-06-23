@@ -30,7 +30,7 @@ public class Ticket extends Producto {
 
         }else if(codigo.contains("INV")|| uso != 1){//si contiene INV es una entrada gratis
             setPrecio(0);
-        }else if(codigo.contains(Character.toString('M')) ||codigo.contains("INV")){
+        }else if(!codigo.contains(Character.toString('M')) ||!codigo.contains("INV")){
             throw new CodigoIncorrectoException();
         }
     }

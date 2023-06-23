@@ -147,9 +147,9 @@ public class SistemaVirtual {
         Golosina res = candy.vender(nombreGolosina); //devuelve null si no existe
         if (res == null) {
             throw new ProductoNotFoundException(); //tiramos exception si no existe}else{
-        }else{
+        }
         cine.agregarAlcarrito(res);
-    }}
+    }
     public void comprarTicket(Pelicula pelicula, int cantTickets, double horario, Sala sala, String codigo){
 
         double precio = 0;//en proceso

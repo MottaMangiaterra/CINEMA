@@ -51,7 +51,7 @@ public class Golosina extends Producto{
             precio -= descuento;
             setPrecio(precio);
 
-        }else if(codigo.contains(Character.toString('Q')) ||codigo.contains(Character.toString('V')))
+        }else if(!codigo.contains(Character.toString('Q')) ||!codigo.contains(Character.toString('V')))
             throw new CodigoIncorrectoException();
     }
 }
