@@ -271,7 +271,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
             FileOutputStream file = new FileOutputStream("ventas.dat")) {
             DataOutputStream dos = new DataOutputStream(file);
             LocalDate date=LocalDate.now();
-            dos.writeChars(date.toString());
+            dos.writeUTF(date.toString());
             dos.writeDouble(ventas);
             dos.close();
         } catch (IOException e) {
