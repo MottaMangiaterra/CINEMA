@@ -297,19 +297,19 @@ public class Cine implements ManejadorHashSet<Pelicula> {
      *
      * @return devuelve el string con las fechas y las ventas de cada dia
      */
-    public String mostrarArchivoVentas()
-    {
-        String res="";
-        try{
-            FileInputStream file=new FileInputStream("ventas.dat");
+    public String mostrarArchivoVentas() {
+        String res = "";
+        try {
+            FileInputStream file = new FileInputStream("ventas.dat");
             DataInputStream dos = new DataInputStream(file);
-            while(dos.available()>0)
-            {
-                res+=dos.readUTF();
-                res+="    Ventas: "+dos.readDouble()+"\n";
+            while (dos.available() > 0) {
+                String venta = dos.readUTF();
+                double cantidad = dos.readDouble();
+                res += venta + "    Ventas: " + cantidad + "\n";
             }
-        }catch(IOException e){
-            System.out. println(e.getMessage());
+            dos.close(); // Se recomienda cerrar el DataInputStream después de su uso
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         return res;
     }

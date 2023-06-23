@@ -135,7 +135,7 @@ public class SistemaVirtual {
                                 cine.grabarVentas();
                                 break;
                             case 4:
-                                cine.mostrarArchivoVentas();
+                                System.out.println(cine.mostrarArchivoVentas());
                                 break;
                             default:
                                 System.out.println("ingrese solamente una de las opciones marcadas por el sistema");
