@@ -5,6 +5,7 @@ import Excepciones.CantidadButacasSuperadasException;
 import Excepciones.ClaveNotFoundException;
 import Excepciones.SalaNotFoundException;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 /**
@@ -52,12 +53,17 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         return clasificacion;
     }
 
+    public HashMap<Integer, Sala> getSalas() {
+        return salas;
+    }
+
     public String mostrarHorario(){
-        String res = null;
+        String res= "";
         Iterator it = salas.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry<Integer, Sala> entry = (Map.Entry<Integer, Sala>)it.next();
-            res += "Sala " + entry.getValue() + '\'' + "Horario " + entry.getKey() + '\'';
+            double aux= entry.getKey()/100.0;
+            res +=" - Butacas disponibles: "+entry.getValue().getButacasDisponibles()+ " - Horario: " + aux + "\n";
         }
         return res;
     }
@@ -124,7 +130,7 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         }else{
 
         for (Integer i: keys) {
-            double aux=i/100;
+            double aux=i/100.0;
             res +=i+" - ";
         }
         }
@@ -143,9 +149,11 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
     public Sala seleccionarHorario(double dato, int cantTickets)throws SalaNotFoundException, CantidadButacasSuperadasException{
         Sala sala = null;
         Integer horario= (int) (dato*100);
+        System.out.println(horario);
         if(salas.containsKey(dato))
         {
             sala = salas.get(dato);
+            System.out.println(sala.getNumeroSala());
             if(sala.getButacasDisponibles() >= cantTickets)
             {
                 sala.descontarButacas(cantTickets);

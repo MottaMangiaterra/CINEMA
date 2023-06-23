@@ -67,11 +67,11 @@ public class Cine implements ManejadorHashSet<Pelicula> {
      */
     @Override
     public String mostrar(){
-        String mostrarPelis = new String("");
+        String mostrarPelis ="";
         for (Pelicula p: peliculas)
         {
             mostrarPelis+="Nombre: "+p.getNombre()+" / Clasificacion: "+p.getClasificacion()+
-                          " / Genero: "+p.getGenero()+" / Duracion:"+p.getDuracion()+" minutos"+"\n"+p.obtenerLlaves();
+                          " / Genero: "+p.getGenero()+" / Duracion:"+p.getDuracion()+" minutos"+"\n";
         }
         return mostrarPelis;
     }
@@ -108,6 +108,8 @@ public class Cine implements ManejadorHashSet<Pelicula> {
             double precio= sc.nextDouble();
             Golosina g=new Golosina(marca,st,nombre,precio);
             getCandy().agregar(g);//funcion que agrega 1 golosina al candy
+            System.out.println("desea agregar otra golosina, presione 1 de ser asi");
+            decision=sc.nextInt();
         }
     }
     /**
@@ -123,7 +125,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
         {
             System.out.println("Ingrese hora de funcion, presione enter e ingrese los minutos de la funcion");
             int keyHora=sc.nextInt();
-            if(keyHora<00 || keyHora>23){//entre las 0 horas y las 23 horas
+            if(keyHora<0 || keyHora>23){//entre las 0 horas y las 23 horas
                 throw new HorarioImposibleException("horario no realista");
             }
             int keyMinutos=sc.nextInt();
@@ -187,7 +189,7 @@ public class Cine implements ManejadorHashSet<Pelicula> {
             double d=p.getDuracion();
             d /= 60; //pasaje a a hora
             int  i = (int) (d*100); //va a dar numero redondo siempre la hora queda en formato (2.30->230)
-            Integer finalizacionPeli=i+horario;
+            int finalizacionPeli=i+horario;
             while(comparador<=finalizacionPeli)
             {
                 Sala s = p.obtenerElemento(comparador);

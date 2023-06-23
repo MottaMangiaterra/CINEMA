@@ -43,6 +43,7 @@ public class SistemaVirtual {
                             System.out.println("ingrese nombre de la pelicula");
                             sc.nextLine();
                             res = sc.nextLine();
+
                             //comprarTicket
                             Pelicula peli =null;
                             try{
@@ -61,37 +62,15 @@ public class SistemaVirtual {
                                 sala = peli.seleccionarHorario(horario, cantTickets);
                             }catch(SalaNotFoundException | CantidadButacasSuperadasException e){
                                 System.out.println(e.getMessage());
-                            }
-                            if(cantTickets >=2)
-                            {
-                                System.out.println("Posee algun codigo de beneficio/descuento?  S/N");//solo va a poder utilizar un beneficio por compra
-                                res = sc.nextLine();
-                                if(res.equalsIgnoreCase("S")){
-                                    System.out.println("Ingrese el codigo: ");
-                                    res = sc.nextLine();
-                                }
-                            }
-                            res = null;
-
+                            };
                             comprarTicket(peli, cantTickets, horario, sala, res);
-
                             break;
                         case 2:
                             System.out.println(candy.mostrar());
                             sc.nextLine();
                             System.out.println("ingrese nombre de producto a agregar al carrito");
-                            res = sc.nextLine();
-                            /*if(golosina >=2)
-                            {
-                                System.out.println("Posee algun codigo de beneficio/descuento?  S/N");//solo va a poder utilizar un beneficio por compra
-                                res = sc.nextLine();
-                                if(res == "S"){
-                                    System.out.println("Ingrese el codigo: ");
-                                    res = sc.nextLine();
-                                }
-                            }
-                            res = null;*///no puedo porque sino tengo que cambiar todo
-                           /* try {
+                          /*  res = sc.nextLine();
+                            try {
                                 comprarCandy(res, );
                             } catch (ProductoNotFoundException e) {
                                 e.getMessage();
@@ -99,6 +78,7 @@ public class SistemaVirtual {
                             break;
                         case 3:
                             System.out.println(cine.mostrarCarrito());
+                            break;
                         default:
                             System.out.println("ingrese solamente una de las opciones marcadas por el sistema");
                             break;
