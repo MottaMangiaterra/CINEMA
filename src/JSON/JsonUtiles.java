@@ -16,7 +16,6 @@ public class JsonUtiles {
         String peliculas = "";
         try {
             peliculas = new String(Files.readAllBytes(Paths.get("src\\JSON\\"+archivo+".json")));
-            System.out.println(peliculas);
         } catch (IOException exception) {
             exception.printStackTrace();
         }

@@ -31,16 +31,14 @@ public class Candy implements ManejadorHashSet<Golosina> {
      * @param "nombre del producto"
      * @return el objeto buscado o null si no existe
      */
-    public Golosina vender(String nombreProducto) {
+    public Golosina vender(String nombre) {
         Golosina aux = null;
-        if (productos.contains(nombreProducto) == true) {
-            Iterator<Golosina> it = productos.iterator();
-            while (it.hasNext()) {
-                Golosina temp = it.next();
-                if (temp.getNombre().equals(nombreProducto) == true) {
-                    aux = temp;
-                    this.ventas += aux.getPrecio();
-                }
+        for (Golosina g: productos)
+        {
+            if(g.getNombre().equals(nombre))
+            {
+                this.ventas+=g.getPrecio();
+                aux=g;
             }
         }
         return aux;
@@ -54,11 +52,9 @@ public class Candy implements ManejadorHashSet<Golosina> {
     @Override
     public String mostrar() {
         String res = new String();
-        int i = 1;
-        Iterator<Golosina> it = productos.iterator();
-        while (it.hasNext()) {
-            res += i + ": " + it;
-            i++;
+        for(Golosina g: this.productos)
+        {
+            res+="Marca: " +g.getMarca()+" - sin tacc: "+g.getSinTacc()+" - Nombre: "+g.getNombre()+ " - Precio: $"+g.getPrecio()+"\n";
         }
         return res;
     }
