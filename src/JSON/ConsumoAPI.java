@@ -25,8 +25,6 @@ public class ConsumoAPI {
                     double horario = jsonArrayH.getJSONObject(j).getDouble("horario");//no anda
                     Integer horarioReal= (int) (horario*100);
                     Sala sala=new Sala(jsonObjectS.getInt("numeroSala"),jsonObjectS.getInt("cantButacas"));
-                    System.out.println(sala.getNumeroSala());
-                    System.out.println(sala.getCantButacas());
                     salaHashMap.put(horarioReal,sala);
                 }
                 peliculas.add(new Pelicula(jsonObject.getString("nombre"), jsonObject.getString("genero"), jsonObject.getInt("duracion"), jsonObject.getString("clasificacion"),salaHashMap));

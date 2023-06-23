@@ -37,6 +37,14 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         this.salas = salas;
     }
 
+    public Pelicula() {
+        this.nombre = "";
+        this.genero = "";
+        this.duracion = 0;
+        this.clasificacion = "";
+        this.salas = new HashMap<>();
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -148,11 +156,9 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
     public Sala seleccionarHorario(double dato, int cantTickets)throws SalaNotFoundException, CantidadButacasSuperadasException{
         Sala sala = null;
         Integer horario= (int) (dato*100);
-        System.out.println(horario);
-        if(salas.containsKey(dato))
+        if(salas.containsKey(horario))
         {
-            sala = salas.get(dato);
-            System.out.println(sala.getNumeroSala());
+            sala = salas.get(horario);
             if(sala.getButacasDisponibles() >= cantTickets)
             {
                 sala.descontarButacas(cantTickets);
