@@ -136,7 +136,6 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
         }
         return res;
     }
-    //metodo seleccionarHorario()
 
     /**
      * Busca el horario seleccionado y luego analiza el espacio que hay. Descuenta si hay butacas disponibles

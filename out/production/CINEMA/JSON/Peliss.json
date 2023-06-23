@@ -1,68 +1,137 @@
 [
-    {
-      "nombre": "LA SIRENITA - 3D CAST",
-      "genero": "AVENTURAS",
-      "duracion": 135,
-      "clasificacion": "ATP",
-      "horarios":[  {"horario": 14.50},   {"horario": 10.50},   {"horario": 6.50}
-      ],
-      "salas": [  {"numeroSala": 1, "cantButacas": 60},  {"numeroSala": 2, "cantButacas": 50},
-        {"numeroSala": 1,
-          "cantButacas": 60}
-      ]
-    },
-    {
-      "nombre": "LA SIRENITA - 2D CAST",
-      "genero": "AVENTURAS",
-      "duracion": 135,
-      "clasificacion": "ATP"
-    },
-    {
-      "nombre": "OBJETOS - 2D CAST",
-      "genero": "THRILLER",
-      "duracion": 108,
-      "clasificacion": "M16"
-    },
-    {
-      "nombre": "RAPIDOS Y FURIOSOS X - 2D CAST",
-      "genero": "ACCION",
-      "duracion": 140,
-      "clasificacion": "M13R"
-    },
-    {
-      "nombre": "RAPIDOS Y FURIOSOS X - 2D SUB",
-      "genero": "ACCION",
-      "duracion": 140,
-      "clasificacion": "M13R"
-    },
-    {
-      "nombre": "RAPIDOS Y FURIOSOS X - 3D CAST",
-      "genero": "ACCION",
-      "duracion": 140,
-      "clasificacion": "M13R"
-    },
-    {
-      "nombre": "GUARDIANES DE LA GALAXIA VOL.3 - 2D CAST",
-      "genero": "ACCION",
-      "duracion": 139,
-      "clasificacion": "M13R"
-    },
-    {
-      "nombre": "MISANTROPO - 2D SUB",
-      "genero": "SUSPENSO",
-      "duracion": 119,
-      "clasificacion": "M16"
-    },
-    {
-      "nombre": "LA EXTORSION - 2D CAST",
-      "genero": "DESCONOCIDO",
-      "duracion": 139,
-      "clasificacion": "M13R"
-    },
-    {
-      "nombre": "GUARDIANES DE LA GALAXIA VOL.3 - 2D CAST",
-      "genero": "ACCION",
-      "duracion": 139,
-      "clasificacion": "M13R"
-    }
+  {
+    "nombre": "LA SIRENITA - 3D CAST",
+    "genero": "AVENTURA",
+    "duracion": 135,
+    "clasificacion": "ATP",
+    "horarios":[
+      {"horario": 19.40}
+    ],
+    "salas": [
+      {"numeroSala": 1,
+        "cantButacas": 60}
+
+    ]
+  },
+  {
+    "nombre": "LA SIRENITA - 2D CAST",
+    "genero": "AVENTURA",
+    "duracion": 135,
+    "clasificacion": "ATP",
+    "horarios":[
+      {"horario": 14.20},
+      {"horario": 16.40}
+    ],
+    "salas": [
+      {"numeroSala": 1,
+        "cantButacas": 60},
+
+      {"numeroSala": 3,
+        "cantButacas": 70}
+    ]
+  },
+  {
+    "nombre": "ELEMENTOS - 2D CAST",
+    "genero": "ANIMACION",
+    "duracion": 118,
+    "clasificacion": "ATP",
+    "horarios":[
+      {"horario": 14.30},
+      {"horario": 19.30},
+      {"horario": 21.50}
+    ],
+    "salas": [
+      {"numeroSala": 2,
+        "cantButacas": 50},
+      {"numeroSala": 3,
+        "cantButacas": 70},
+      {"numeroSala": 3,
+        "cantButacas": 70}
+    ]
+  },
+  {
+    "nombre": "ELEMENTOS - 3D CAST",
+    "genero": "ANIMACION",
+    "duracion": 118,
+    "clasificacion": "ATP",
+    "horarios":[
+      {"horario": 17.10}
+    ],
+    "salas": [
+      {"numeroSala": 1,
+        "cantButacas": 60}
+    ]
+  },
+  {
+    "nombre": "FLASH - 2D SUB",
+    "genero": "ACCION",
+    "duracion": 154,
+    "clasificacion": "M13",
+    "horarios":[
+      {"horario": 19.50}
+    ],
+    "salas": [
+      {"numeroSala": 2,
+        "cantButacas": 50}
+    ]
+  },
+  {
+    "nombre": "FLASH - 2D CAST",
+    "genero": "ACCION",
+    "duracion": 154,
+    "clasificacion": "M13",
+    "horarios":[
+      {"horario": 16.50},
+      {"horario": 22.50}
+    ],
+    "salas": [
+      {"numeroSala": 2,
+        "cantButacas": 50},
+      {"numeroSala": 2,
+        "cantButacas": 50}
+    ]
+  },
+  {
+    "nombre": "TRANSFORMERS: EL DESPERTAR DE LAS BESTIAS - 2D CAST",
+    "genero": "ACCION",
+    "duracion": 137,
+    "clasificacion": "M13",
+    "horarios":[
+      {"horario": 22.30}
+
+    ],
+    "salas": [
+      {"numeroSala": 1,
+        "cantButacas": 60}
+    ]
+  },
+  {
+    "nombre": "SPIDER-MAN A TRAVES DEL SPIDER-VERSO - 2D CAST",
+    "genero": "ANIMACION",
+    "duracion": 146,
+    "clasificacion": "M13",
+    "horarios":[
+      {"horario": 16.30},
+      {"horario": 19.20}
+    ],
+    "salas": [
+      {"numeroSala": 4,
+        "cantButacas": 65},
+      {"numeroSala": 4,
+        "cantButacas": 65}
+    ]
+  },
+  {
+    "nombre": "RAPIDOS Y FURIOSOS - 2D CAST",
+    "genero": "ACCION",
+    "duracion": 150,
+    "clasificacion": "M13R",
+    "horarios":[
+      {"horario": 22.10}
+    ],
+    "salas": [
+      {"numeroSala": 4,
+        "cantButacas": 65}
+    ]
+  }
 ]

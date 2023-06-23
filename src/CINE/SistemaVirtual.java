@@ -45,13 +45,14 @@ public class SistemaVirtual {
                             res = sc.nextLine();
 
                             //comprarTicket
-                            Pelicula peli =null;
+                            Pelicula peli = null;
                             try{
                                 peli = cine.seleccionarPelicula(res);
                             }catch(PeliculaNotFoundException e)
                             {
                                 System.out.println(e.getMessage());
                             }
+
                             System.out.println(peli.mostrarHorario());
                             System.out.println("ingrese el horario");
                             double horario = sc.nextDouble();
@@ -74,7 +75,7 @@ public class SistemaVirtual {
                                 comprarCandy(res, );
                             } catch (ProductoNotFoundException e) {
                                 e.getMessage();
-                            }*/
+                            }
                             break;
                         case 3:
                             System.out.println(cine.mostrarCarrito());
@@ -156,10 +157,10 @@ public class SistemaVirtual {
                 System.out.println(e.getMessage());
             }
         }*/
-        cine.agregarAlcarrito(res);
+      //  cine.agregarAlcarrito(res);
 
 
-    }
+    }}}}
     public void comprarTicket(Pelicula pelicula, int cantTickets, double horario, Sala sala, String codigo){
 
         double precio = 0;//en proceso

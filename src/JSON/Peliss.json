@@ -5,7 +5,7 @@
     "duracion": 135,
     "clasificacion": "ATP",
     "horarios":[
-      {"horario0": 19.40}
+      {"horario": 19.40}
     ],
     "salas": [
       {"numeroSala": 1,
@@ -19,8 +19,8 @@
     "duracion": 135,
     "clasificacion": "ATP",
     "horarios":[
-      {"horario0": 14.20},
-      {"horario1": 16.40}
+      {"horario": 14.20},
+      {"horario": 16.40}
     ],
     "salas": [
       {"numeroSala": 1,
@@ -36,9 +36,9 @@
     "duracion": 118,
     "clasificacion": "ATP",
     "horarios":[
-      {"horario0": 14.30},
-      {"horario1": 19.30},
-      {"horario2": 21.50}
+      {"horario": 14.30},
+      {"horario": 19.30},
+      {"horario": 21.50}
     ],
     "salas": [
       {"numeroSala": 2,
@@ -55,7 +55,7 @@
     "duracion": 118,
     "clasificacion": "ATP",
     "horarios":[
-      {"horario0": 17.10}
+      {"horario": 17.10}
     ],
     "salas": [
       {"numeroSala": 1,
@@ -68,7 +68,7 @@
     "duracion": 154,
     "clasificacion": "M13",
     "horarios":[
-      {"horario0": 19.50}
+      {"horario": 19.50}
     ],
     "salas": [
       {"numeroSala": 2,
@@ -81,8 +81,8 @@
     "duracion": 154,
     "clasificacion": "M13",
     "horarios":[
-      {"horario0": 16.50},
-      {"horario1": 22.50}
+      {"horario": 16.50},
+      {"horario": 22.50}
     ],
     "salas": [
       {"numeroSala": 2,
@@ -97,7 +97,7 @@
     "duracion": 137,
     "clasificacion": "M13",
     "horarios":[
-      {"horario0": 22.30}
+      {"horario": 22.30}
 
     ],
     "salas": [
@@ -111,8 +111,8 @@
     "duracion": 146,
     "clasificacion": "M13",
     "horarios":[
-      {"horario0": 16.30},
-      {"horario1": 19.20}
+      {"horario": 16.30},
+      {"horario": 19.20}
     ],
     "salas": [
       {"numeroSala": 4,
@@ -127,7 +127,7 @@
     "duracion": 150,
     "clasificacion": "M13R",
     "horarios":[
-      {"horario0": 22.10}
+      {"horario": 22.10}
     ],
     "salas": [
       {"numeroSala": 4,
