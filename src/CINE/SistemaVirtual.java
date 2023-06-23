@@ -44,8 +44,7 @@ public class SistemaVirtual {
                             sc.nextLine();
                             res = sc.nextLine();
 
-                            //comprarTicket
-                            Pelicula peli = null;
+                            Pelicula peli = new Pelicula();
                             try{
                                 peli = cine.seleccionarPelicula(res);
                             }catch(PeliculaNotFoundException e)
@@ -58,7 +57,7 @@ public class SistemaVirtual {
                             double horario = sc.nextDouble();
                             System.out.println("Por ultimo, ingrese la cantidad de tickets");
                             int cantTickets = sc.nextInt();
-                            Sala sala = null;
+                            Sala sala = new Sala();
                             try{
                                 sala = peli.seleccionarHorario(horario, cantTickets);
                             }catch(SalaNotFoundException | CantidadButacasSuperadasException e){

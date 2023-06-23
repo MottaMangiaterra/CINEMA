@@ -21,6 +21,13 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
     private String clasificacion;
     private HashMap<Integer,Sala> salas; //hora de inicio-> Integer; solo hay 3 salas
 
+    public Pelicula(){
+        this.nombre = "";
+        this.genero = "";
+        this.duracion = 0;
+        this.clasificacion = "";
+        this.salas = new HashMap<>();
+    }
     public Pelicula(String nombre, String genero, int duracion, String clasificacion) {
         this.nombre = nombre;
         this.genero = genero;
@@ -146,7 +153,7 @@ public class Pelicula implements ManejoHashMap<Integer,Sala> {
      * @throws CantidadButacasSuperadasException la cantidad de butacas seleccionadas no esta disponible.
      */
     public Sala seleccionarHorario(double dato, int cantTickets)throws SalaNotFoundException, CantidadButacasSuperadasException{
-        Sala sala = null;
+        Sala sala;
         Integer horario= (int) (dato*100);
         System.out.println(horario);
         if(salas.containsKey(dato))
