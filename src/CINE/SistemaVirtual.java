@@ -70,7 +70,7 @@ public class SistemaVirtual {
                             System.out.println(candy.mostrar());
                             sc.nextLine();
                             System.out.println("ingrese nombre de producto a agregar al carrito");
-                          /*  res = sc.nextLine();
+                            res = sc.nextLine();
                             try {
                                 comprarCandy(res, );
                             } catch (ProductoNotFoundException e) {
@@ -144,23 +144,22 @@ public class SistemaVirtual {
         }
     }
     public void comprarCandy(String nombreGolosina) throws ProductoNotFoundException {//falta metodo selec candy
-        Golosina res=candy.vender(nombreGolosina); //devuelve null si no existe
+        Golosina res = candy.vender(nombreGolosina); //devuelve null si no existe
         int uso = 0;
-        if(res==null) {
+        if (res == null) {
             throw new ProductoNotFoundException(); //tiramos exception si no existe}else{
         }
-        /*if(codigo != null)
-        {
-            try{
+        if (codigo != null) {
+            try {
                 res.promocion(codigo, uso);
-            }catch (CodigoIncorrectoException e){
+            } catch (CodigoIncorrectoException e) {
                 System.out.println(e.getMessage());
             }
-        }*/
-      //  cine.agregarAlcarrito(res);
+        }
+        cine.agregarAlcarrito(res);
 
 
-    }}}}
+    }
     public void comprarTicket(Pelicula pelicula, int cantTickets, double horario, Sala sala, String codigo){
 
         double precio = 0;//en proceso

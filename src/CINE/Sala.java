@@ -17,11 +17,6 @@ public class Sala {
         this.butacasDisponibles = cantButacas;
     }
 
-    public Sala() {
-        this.numeroSala = 0;
-        this.cantButacas = 0;
-        this.butacasDisponibles = 0;
-    }
 
     public int getNumeroSala() {
         return numeroSala;
