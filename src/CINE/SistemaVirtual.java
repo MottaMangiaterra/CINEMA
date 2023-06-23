@@ -29,18 +29,18 @@ public class SistemaVirtual {
             int opcion = 0;
             Scanner sc = new Scanner(System.in);
             String password = "";
-            System.out.println("1. Sistema cine  " + '\'' + "2. Administracion");//ver si es necesario modo admin
+            System.out.println("1. Sistema cine  \n2. Administracion");
             String res = null;
             opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("1. Entradas" + '\'' + "2. Candy" + '\'' + " 3. Carrito");
+                    System.out.println("1. Entrada \n2. Candy \n3. Carrito");
                     opcion = sc.nextInt();
                     switch (opcion)
                     {
                         case 1:
                             System.out.println(cine.mostrar());
-                            System.out.println("ingrese nombre de la pelicula");
+                            System.out.println("Ingrese nombre de la pelicula (Tenga en cuenta el formato al escribir: peli - tipo idioma).");
                             sc.nextLine();
                             res = sc.nextLine();
 
@@ -54,7 +54,7 @@ public class SistemaVirtual {
                             }
 
                             System.out.println(peli.mostrarHorario());
-                            System.out.println("ingrese el horario");
+                            System.out.println("Ingrese el horario(con coma).");
                             double horario = sc.nextDouble();
                             System.out.println("Por ultimo, ingrese la cantidad de tickets");
                             int cantTickets = sc.nextInt();
