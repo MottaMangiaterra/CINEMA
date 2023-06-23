@@ -79,6 +79,12 @@ public class SistemaVirtual {
                             break;
                         case 3:
                             System.out.println(cine.mostrarCarrito());
+                            System.out.println("\npara confirmar la compra de su carrito ingrese 1");
+                            int comprarCarrito=sc.nextInt();
+                            if(comprarCarrito==1)
+                            {
+                                cine.comprarCarrito();
+                            }
                             break;
                         default:
                             System.out.println("ingrese solamente una de las opciones marcadas por el sistema");
@@ -91,7 +97,8 @@ public class SistemaVirtual {
                     password = sc.nextLine();
                     if(password.equals("1234"))
                     {
-                        System.out.println("1. agregar pelicula " + '\'' + "2. agregar golosina"); //añadir guardar ventas candy y cine
+                        System.out.println("1. agregar pelicula " + '\'' + "2. agregar golosina"+
+                                '\'' + "3. guardar ventas"+ '\'' + "4. ver ventas"); //añadir guardar ventas candy y cine
                         opcion =sc.nextInt();
                         switch (opcion){
                             case 1:
@@ -123,14 +130,23 @@ public class SistemaVirtual {
                                 System.out.println("ingrese precio");
                                 precio=sc.nextInt();
                                 candy.agregar(new Golosina(marca,sinTacc,nombre,precio));
+                                break;
+                            case 3:
+                                cine.grabarVentas();
+                                break;
+                            case 4:
+                                cine.mostrarArchivoVentas();
+                                break;
+                            default:
+                                System.out.println("ingrese solamente una de las opciones marcadas por el sistema");
+                                break;
                         }
                     }
                     else{
                         throw new RuntimeException("Acceso denegado");
                     }
-                    break;
-                default:
-                    break;
+
+
             }
 
             System.out.println("si desea salir del sistema precione 1");
